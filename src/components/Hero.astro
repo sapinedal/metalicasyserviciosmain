@@ -1,0 +1,28 @@
+---
+import bg from "../assets/background.svg";
+---
+
+<section class="relative overflow-hidden bg-base-50">
+	<div class="absolute inset-0 z-10 opacity-40" aria-hidden="true">
+		<img src={bg.src} alt="" class="w-full h-full object-cover" />
+	</div>
+	<div class="container-base grid grid-cols-1 lg:grid-cols-2 gap-10 py-16 lg:py-24">
+		<div class="reveal">
+			<h1 class="text-4xl sm:text-5xl font-semibold tracking-tight text-base-900">
+				Soluciones en metalmecánica con calidad y cumplimiento
+			</h1>
+			<p class="mt-4 text-base text-base-600 max-w-xl">
+				Montajes, soldadura, rolado, canoas, rejas y más. Acompañamos proyectos industriales y residenciales con estándares de seguridad y entrega a tiempo.
+			</p>
+			<div class="mt-8 flex items-center gap-4">
+				<a href="#contacto" class="btn-primary btn-hover-effect animate-button-pulse">Solicitar cotización</a>
+				<a href="#servicios" class="btn-secondary border-accent-200 text-accent-700 hover:bg-accent-50 button-ripple">Ver servicios</a>
+			</div>
+		</div>
+		<div class="reveal reveal-delay-2">
+			<img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=1600&auto=format&fit=crop" alt="Trabajo metalmecánico" class="w-full h-80 sm:h-[28rem] object-cover rounded-xl shadow animate-float" />
+		</div>
+	</div>
+</section>
+
+

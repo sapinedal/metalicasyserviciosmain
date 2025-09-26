@@ -1,0 +1,45 @@
+---
+import foto2 from "../assets/FOTO-2.webp";
+import foto3 from "../assets/FOTO-3.webp";
+import foto4 from "../assets/FOTO-4.webp";
+import foto5 from "../assets/FOTO-5.webp";
+import foto6 from "../assets/FOTO-6.webp";
+import foto7 from "../assets/FOTO-7.webp";
+import foto8 from "../assets/FOTO-8.webp";
+import foto9 from "../assets/FOTO-9.webp";
+import foto10 from "../assets/FOTO-10.webp";
+import foto11 from "../assets/FOTO-11.webp";
+import foto12 from "../assets/FOTO-12.webp";
+
+const images = [
+  { src: foto2.src, alt: "Proyecto 2" },
+  { src: foto3.src, alt: "Proyecto 3" },
+  { src: foto4.src, alt: "Proyecto 4" },
+  { src: foto5.src, alt: "Proyecto 5" },
+  { src: foto6.src, alt: "Proyecto 6" },
+  { src: foto7.src, alt: "Proyecto 7" },
+  { src: foto8.src, alt: "Proyecto 8" },
+  { src: foto9.src, alt: "Proyecto 9" },
+  { src: foto10.src, alt: "Proyecto 10" },
+  { src: foto11.src, alt: "Proyecto 11" },
+  { src: foto12.src, alt: "Proyecto 12" },
+];
+---
+
+<section id="galeria" class="py-16 lg:py-24 bg-white">
+  <div class="container-base">
+    <div class="mb-10 text-center">
+      <h2 class="section-title">Trabajos recientes</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {images.map((image) => (
+        <figure class="overflow-hidden rounded-xl shadow reveal">
+          <img src={image.src} alt={image.alt} loading="lazy" class="w-full h-64 object-cover hover:scale-[1.03] transition-transform duration-300" />
+        </figure>
+      ))}
+    </div>
+  </div>
+  
+</section>
+
+

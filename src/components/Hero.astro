@@ -1,5 +1,6 @@
 ---
 import bg from "../assets/background.svg";
+import video from "../assets/Video_Bano_MYS.webm";
 ---
 
 <section class="relative overflow-hidden bg-base-50">
@@ -20,7 +21,9 @@ import bg from "../assets/background.svg";
 			</div>
 		</div>
 		<div class="reveal reveal-delay-2">
-			<img src="/logo-metalicas.jpg" alt="Trabajo metalmecánico" class="w-auto h-auto sm:h-[28rem] object-cover rounded-xl shadow animate-float" />
+			<div class="reveal reveal-delay-2">
+				<video src={video} autoplay muted loop playsinline controls preload="metadata" class="w-full h-80 sm:h-[28rem] object-cover rounded-xl shadow"></video>
+			</div>
 		</div>
 	</div>
 </section>

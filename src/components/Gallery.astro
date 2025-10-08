@@ -10,19 +10,21 @@ import foto9 from "../assets/FOTO-9.webp";
 import foto10 from "../assets/FOTO-10.webp";
 import foto11 from "../assets/FOTO-11.webp";
 import foto12 from "../assets/FOTO-12.webp";
+import video from "../assets/PINTURA_METALESYSERVICIOS.webm";
 
-const images = [
-  { src: foto2.src, alt: "Proyecto 2" },
-  { src: foto3.src, alt: "Proyecto 3" },
-  { src: foto4.src, alt: "Proyecto 4" },
-  { src: foto5.src, alt: "Proyecto 5" },
-  { src: foto6.src, alt: "Proyecto 6" },
-  { src: foto7.src, alt: "Proyecto 7" },
-  { src: foto8.src, alt: "Proyecto 8" },
-  { src: foto9.src, alt: "Proyecto 9" },
-  { src: foto10.src, alt: "Proyecto 10" },
-  { src: foto11.src, alt: "Proyecto 11" },
-  { src: foto12.src, alt: "Proyecto 12" },
+const media = [
+  { src: foto2.src, alt: "Proyecto 2", type: "image" },
+  { src: foto3.src, alt: "Proyecto 3", type: "image" },
+  { src: foto4.src, alt: "Proyecto 4", type: "image" },
+  { src: foto5.src, alt: "Proyecto 5", type: "image" },
+  { src: foto6.src, alt: "Proyecto 6", type: "image" },
+  { src: foto7.src, alt: "Proyecto 7", type: "image" },
+  { src: foto8.src, alt: "Proyecto 8", type: "image" },
+  { src: foto9.src, alt: "Proyecto 9", type: "image" },
+  { src: foto10.src, alt: "Proyecto 10", type: "image" },
+  { src: foto11.src, alt: "Proyecto 11", type: "image" },
+  { src: foto12.src, alt: "Proyecto 12", type: "image" },
+  { src: video, alt: "Video pintura electrostática", type: "video" },
 ];
 ---
 
@@ -32,14 +34,29 @@ const images = [
       <h2 class="section-title">Trabajos recientes</h2>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-      {images.map((image) => (
-        <figure class="overflow-hidden rounded-xl shadow reveal">
-          <img src={image.src} alt={image.alt} loading="lazy" class="w-full h-64 object-cover hover:scale-[1.03] transition-transform duration-300" />
-        </figure>
-      ))}
+      {
+        media.map((item) => (
+          <figure class="overflow-hidden rounded-xl shadow reveal">
+            {item.type === "video" ? (
+              <video
+                src={item.src}
+                autoplay
+                muted
+                loop
+                playsinline
+                class="w-full h-64 object-cover hover:scale-[1.03] transition-transform duration-300"
+              />
+            ) : (
+              <img
+                src={item.src}
+                alt={item.alt}
+                loading="lazy"
+                class="w-full h-64 object-cover hover:scale-[1.03] transition-transform duration-300"
+              />
+            )}
+          </figure>
+        ))
+      }
     </div>
   </div>
-  
 </section>
-
-

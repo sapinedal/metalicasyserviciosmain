@@ -8,42 +8,112 @@ import foto8 from "../assets/FOTO-8.webp";
 import foto9 from "../assets/FOTO-9.webp";
 import foto12 from "../assets/FOTO-12.webp";
 import foto11 from "../assets/FOTO-11.webp";
+import video12 from "../assets/VIDEO PINTURA.webm";
 
-type Service = { title: string; description: string; image: { src: string; alt: string } };
+type Service = {
+  title: string;
+  description: string;
+  image: { src: string; alt: string; type?: "image" | "video" };
+};
 
-const services: Array<Service>= [
-    { title: 'Montajes Estructurales', description: 'Diseño, prefabricación y montaje de estructuras metálicas. Incluye izaje, nivelación, alineación y aseguramiento de pernos, cumpliendo normas de seguridad y calidad.', image: { src: foto2.src, alt: 'Montajes estructurales' } },
-    { title: 'Soldadura tig, mig y revestida', description: 'Servicios de soldadura para acero al carbono, inoxidable y aluminio. Procedimientos calificados, preparación de juntas, cordones uniformes y ensayos no destructivos bajo requerimiento.', image: { src: foto9.src, alt: 'Soldadura industrial' } },
-    { title: 'Rolado de tubos y lamina', description: 'Curvado controlado de tubos, perfiles y lámina para radios específicos. Entregas consistentes para piezas arquitectónicas e industriales.', image: { src: foto4.src, alt: 'Rolado de tubos y lámina' } },
-    { title: 'Canoas', description: 'Fabricación de canoas y canales en lámina galvanizada o inoxidable. Cálculo de caudal, anclajes y sellos según la aplicación.', image: { src: foto11.src, alt: 'Canoas y canales' } },
-    { title: 'Rejas, Puertas', description: 'Diseño y fabricación de rejas, barandas y portones. Acabados de alta durabilidad y herrajes de calidad.', image: { src: foto3.src, alt: 'Rejas y puertas metálicas' } },
-    { title: 'Carcamanos', description: 'Construcción de marcos y estructuras para control hidráulico. Geometría precisa, soldaduras selladas y recubrimientos anticorrosivos.', image: { src: foto6.src, alt: 'Estructuras para hidráulica' } },
-    { title: 'Corte y dobles', description: 'Corte por cizalla y sierra, y doblado en prensa para piezas a medida con tolerancias ajustadas.', image: { src: foto8.src, alt: 'Corte y doblez de lámina' } },
-    { title: 'Pérgolas', description: 'Diseño y montaje de pérgolas y cubiertas metálicas para exteriores. Integración estética, drenajes y protección anticorrosiva.', image: { src: foto12.src, alt: 'Pérgolas metálicas' } },
-    { title: 'Pintura Electrostática', description: 'Aplicación de recubrimiento en polvo con curado en horno para acabados uniformes, alta adhesión y resistencia.', image: { src: foto5.src, alt: 'Pintura electrostática' } },
+const services: Array<Service> = [
+  {
+    title: "Montajes Estructurales",
+    description:
+      "Diseño, prefabricación y montaje de estructuras metálicas. Incluye izaje, nivelación, alineación y aseguramiento de pernos, cumpliendo normas de seguridad y calidad.",
+    image: { src: foto2.src, alt: "Montajes estructurales" },
+  },
+  {
+    title: "Soldadura tig, mig y revestida",
+    description:
+      "Servicios de soldadura para acero al carbono, inoxidable y aluminio. Procedimientos calificados, preparación de juntas, cordones uniformes y ensayos no destructivos bajo requerimiento.",
+    image: { src: foto9.src, alt: "Soldadura industrial" },
+  },
+  {
+    title: "Rolado de tubos y lamina",
+    description:
+      "Curvado controlado de tubos, perfiles y lámina para radios específicos. Entregas consistentes para piezas arquitectónicas e industriales.",
+    image: { src: foto4.src, alt: "Rolado de tubos y lámina" },
+  },
+  {
+    title: "Canoas",
+    description:
+      "Fabricación de canoas y canales en lámina galvanizada o inoxidable. Cálculo de caudal, anclajes y sellos según la aplicación.",
+    image: { src: foto11.src, alt: "Canoas y canales" },
+  },
+  {
+    title: "Rejas, Puertas",
+    description:
+      "Diseño y fabricación de rejas, barandas y portones. Acabados de alta durabilidad y herrajes de calidad.",
+    image: { src: foto3.src, alt: "Rejas y puertas metálicas" },
+  },
+  {
+    title: "Carcamanos",
+    description:
+      "Construcción de marcos y estructuras para control hidráulico. Geometría precisa, soldaduras selladas y recubrimientos anticorrosivos.",
+    image: { src: foto6.src, alt: "Estructuras para hidráulica" },
+  },
+  {
+    title: "Corte y dobles",
+    description:
+      "Corte por cizalla y sierra, y doblado en prensa para piezas a medida con tolerancias ajustadas.",
+    image: { src: foto8.src, alt: "Corte y doblez de lámina" },
+  },
+  {
+    title: "Pérgolas",
+    description:
+      "Diseño y montaje de pérgolas y cubiertas metálicas para exteriores. Integración estética, drenajes y protección anticorrosiva.",
+    image: { src: foto12.src, alt: "Pérgolas metálicas" },
+  },
+  {
+    title: "Pintura Electrostática",
+    description:
+      "Aplicación de recubrimiento en polvo con curado en horno para acabados uniformes, alta adhesión y resistencia.",
+    image: { src: video12, alt: "Pintura electrostática", type: "video" },
+  },
 ];
 ---
 
 <section id="servicios" class="py-16 lg:py-24">
-	<div class="container-base">
-		<h2 class="section-title">Nuestros Servicios</h2>
-		<p class="section-subtitle">Experiencia en metalmecánica para proyectos industriales y residenciales.</p>
-        <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s, i) => (
-                <article class={`reveal reveal-delay-${(i%4)+1} rounded-xl border border-base-200 bg-white overflow-hidden shadow-sm hover:shadow transition hover:border-accent-300 group`}>
-                    <figure class="aspect-[16/10] overflow-hidden">
-                        <img src={s.image.src} alt={s.image.alt} loading="lazy" class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300" />
-                    </figure>
-                    <div class="p-6">
-                        <h3 class="text-lg font-semibold text-base-900">{s.title}</h3>
-                        <p class="mt-2 text-sm text-base-600">{s.description}</p>
-                        <div class="mt-4 h-1 w-12 bg-accent-200 overflow-hidden rounded-full">
-                        </div>
-                    </div>
-                </article>
-            ))}
-        </div>
-	</div>
+  <div class="container-base">
+    <h2 class="section-title">Nuestros Servicios</h2>
+    <p class="section-subtitle">
+      Experiencia en metalmecánica para proyectos industriales y residenciales.
+    </p>
+    <div class="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        services.map((s, i) => (
+          <article
+            class={`reveal reveal-delay-${(i % 4) + 1} rounded-xl border border-base-200 bg-white overflow-hidden shadow-sm hover:shadow transition hover:border-accent-300 group`}
+          >
+            <figure class="aspect-[16/10] overflow-hidden">
+              {s.image.type === "video" ? (
+                <video
+                  src={s.image.src}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  class="w-full h-full object-cover"
+                />
+              ) : (
+                <img
+                  src={s.image.src}
+                  alt={s.image.alt}
+                  loading="lazy"
+                  class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                />
+              )}
+            </figure>
+
+            <div class="p-6">
+              <h3 class="text-lg font-semibold text-base-900">{s.title}</h3>
+              <p class="mt-2 text-sm text-base-600">{s.description}</p>
+              <div class="mt-4 h-1 w-12 bg-accent-200 overflow-hidden rounded-full" />
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
 </section>
-
-
